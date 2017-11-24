@@ -22,6 +22,7 @@
   "license": "MIT",
   "dependencies": {
     "babel-preset-es2015": "^6.24.1",
+    "cheerio": "^1.0.0-rc.2",
     "got": "^8.0.0",
     "xml2js": "^0.4.19"
   }

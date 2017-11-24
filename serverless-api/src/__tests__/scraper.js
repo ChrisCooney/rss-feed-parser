@@ -15,7 +15,7 @@ jest.mock('../network', () => ({
 describe('Test the scrapers ability to parse and return content', () => {
   it('should parse and return correct objects when provided with correct rss content', () => {
     return scraper.fetchArticleSummary().then(summaries => {
-      expect(summaries.length).toBe(1)
+      expect(summaries.length).toBe(2)
       expect(summaries[0].title).toBe('Woman Raises Over $290,000 For Homeless Veteran Who Saved Her')
       expect(summaries[0].url).toBe('http://www.ladbible.com/community/news-inspirational-woman-raises-over-290000-for-homeless-veteran-who-saved-her-20171124')
     })
