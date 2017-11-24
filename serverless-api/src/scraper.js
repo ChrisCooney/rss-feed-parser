@@ -26,8 +26,12 @@ const parseArticleSummary = ($, item) => {
 const parseImageUrls = ($, item) => {
   const rawArticleContent = getRawArticleContent($, item)
   const article$ = parser.load(rawArticleContent)
-  const imgs = article$('img').map((index, img) => getImgSrc(article$, img))
-  console.log(imgs)
+
+  const sources = []
+
+  article$('img').each((index, img) => sources.push(getImgSrc(article$, img)))
+  
+  return sources
 }
 
 const getImgSrc = ($, img) => $(img).attr('src')
