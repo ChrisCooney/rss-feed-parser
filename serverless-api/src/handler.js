@@ -3,7 +3,7 @@ const images = (event, context, callback) => {
     statusCode: 200,
     body: JSON.stringify([
       {
-        image: ''
+        images: []
       }
     ])
   })

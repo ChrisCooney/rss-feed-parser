@@ -9,7 +9,7 @@ describe('Test the main handler functionality.', () => {
        statusCode: 200,
        body: JSON.stringify([
          {
-           image: ''
+           images: []
          }
        ])
      }
