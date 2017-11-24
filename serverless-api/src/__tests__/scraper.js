@@ -1,20 +1,22 @@
 import scraper from '../scraper'
 import fs from 'fs'
+import path from 'path'
 
-const mockRssHtml = fs.readFileSync(__dirname + '/resources/test-rss-sample.rss')
+const mockNetworkPromise = new Promise(resolve => {
+  fs.readFile(path.join(__dirname, '/resources/test-rss-sample.rss'), 'utf8', (error, data) => {
+    resolve({ body: data })
+  })
+})
 
-jest.mock('../network', () => (
-  {
-    get: () => (
-      new Promise((resolve) => resolve({ body: mockRssHtml }))
-    )
-  }
-))
+jest.mock('../network', () => ({
+    get: () => mockNetworkPromise
+}))
 
 describe('Test the scrapers ability to parse and return content', () => {
-  it('should parse and return correct objects when provided with correct html', () => {
-    return scraper.fetchArticleSummary().then((summaries) => {
+  it('should parse and return correct objects when provided with correct rss content', () => {
+    return scraper.fetchArticleSummary().then(summaries => {
       expect(summaries.length).toBe(1)
+      expect(summaries[0].title).toBe('Woman Raises Over $290,000 For Homeless Veteran Who Saved Her')
     })
   })
 })
