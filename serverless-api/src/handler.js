@@ -1,7 +1,11 @@
 const images = (event, context, callback) => {
   callback(null, {
     statusCode: 200,
-    body: JSON.stringify({ message: 'sup brah' })
+    body: JSON.stringify([
+      {
+        image: ''
+      }
+    ])
   })
 }
 

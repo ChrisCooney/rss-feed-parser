@@ -5,6 +5,15 @@ describe('Test the main handler functionality.', () => {
      const mockCallback = jest.fn()
      handler(null, null, mockCallback)
 
-     expect(mockCallback).toHaveBeenCalled()
+     const expectedShape = {
+       statusCode: 200,
+       body: JSON.stringify([
+         {
+           image: ''
+         }
+       ])
+     }
+
+     expect(mockCallback).toHaveBeenCalledWith(null, expectedShape)
   })
 })
