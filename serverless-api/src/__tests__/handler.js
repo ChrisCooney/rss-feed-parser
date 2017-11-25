@@ -1,19 +1,30 @@
 import handler from '../handler'
 
+const mockArticleSummaries = [{
+  title: 'title',
+  url: 'url',
+  images: []
+}]
+
+const mockHttpResponse = {
+  statusCode: 200,
+  body: JSON.stringify(mockArticleSummaries)
+}
+
+jest.mock('../scraper', () => ({
+  fetchArticleSummaries: jest.fn(() => (
+    new Promise((resolve) => {
+      resolve(mockArticleSummaries)
+    })
+  ))
+}))
+
 describe('Test the main handler functionality.', () => {
   it('should invoke the callback with the provided response', () => {
      const mockCallback = jest.fn()
-     handler(null, null, mockCallback)
 
-     const expectedShape = {
-       statusCode: 200,
-       body: JSON.stringify([
-         {
-           images: []
-         }
-       ])
-     }
-
-     expect(mockCallback).toHaveBeenCalledWith(null, expectedShape)
+     return handler(null, null, mockCallback).then(() => {
+       expect(mockCallback).toHaveBeenCalledWith(null, mockHttpResponse)
+     })
   })
 })

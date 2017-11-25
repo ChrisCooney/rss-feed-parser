@@ -3,11 +3,11 @@ import parser from 'cheerio'
 
 const LAD_BIBLE_RSS_FEED = 'http://www.ladbible.com/news.rss'
 
-const fetchArticleSummary = () => {
-  return network.get(LAD_BIBLE_RSS_FEED)
+const fetchArticleSummaries = () => (
+  network.get(LAD_BIBLE_RSS_FEED)
     .then(response => response.body)
     .then(rawRss => parseArticleSummaries(rawRss))
-}
+)
 
 const parseArticleSummaries = rawRss => {
   const $ = parser.load(rawRss, { xmlMode: true })
@@ -30,16 +30,17 @@ const parseImageUrls = ($, item) => {
   const sources = []
 
   article$('img').each((index, img) => sources.push(getImgSrc(article$, img)))
-  
+
   return sources
 }
 
 const getImgSrc = ($, img) => $(img).attr('src')
 
+/* it thinks that content:encoded is a pseudoclass selector and goes mental.*/
 const getRawArticleContent = ($, item) => $(':contains("content")', item).text()
 
 const handleCP1252Encoding = content => content.replace('â€‹', '')
 
 export default {
-  fetchArticleSummary,
+  fetchArticleSummaries,
 }
