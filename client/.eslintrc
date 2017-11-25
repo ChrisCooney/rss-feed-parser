@@ -1,28 +1,27 @@
 {
-  "parserOptions": {
-    "sourceType": "module",
-    "ecmaFeatures": {
-      "jsx": true,
-      "experimentalObjectRestSpread": true
-    }
-  },
+  "parser": "babel-eslint",
   "env": {
     "browser": true,
-    "node": true,
-    "es6": true,
-    "jest/globals": true
+    "jest": true
   },
-  "rules": {
-    "quotes": [2, "single"],
-    "strict": [2, "never"],
-    "react/jsx-uses-react": 2,
-    "react/jsx-uses-vars": 2,
-    "react/react-in-jsx-scope": 2,
-    "semi": [ 2, "never" ]
-  },
-  "plugins": [
-    "react",
-    "jest"
+  "extends": [
+    "airbnb"
   ],
-  "extends": ["eslint:recommended", "plugin:react/recommended", "plugin:jest/recommended"]
+  "rules": {
+    "semi": ["error", "never"],
+    "no-confusing-arrow": "off",
+    "import/named": "error",
+    "import/default": "error",
+    "import/prefer-default-export": "off",
+    "jsx-a11y/href-no-hash": "off",
+    "jsx-a11y/img-has-alt": "off",
+    "jsx-a11y/anchor-is-valid": ["warn", { "aspects": ["invalidHref"] }]
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [ '', '.js', '.jsx']
+      }
+    }
+  }
 }
