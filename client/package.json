@@ -4,7 +4,8 @@
   "description": "Client for consuming JSON from serverless API",
   "scripts": {
     "lint": "eslint src",
-    "start": "node server.js"
+    "start": "node server.js",
+    "test": "jest --coverage"
   },
   "license": "MIT",
   "homepage": "https://github.com/noahlotzer/react-simple-boilerplate",
@@ -15,8 +16,13 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "css-loader": "^0.28.0",
+    "enzyme": "^3.2.0",
+    "enzyme-adapter-react-15": "^1.0.5",
+    "react-test-renderer": "^15.5.0",
     "eslint": "^3.19.0",
+    "eslint-plugin-jest": "^21.3.2",
     "eslint-plugin-react": "^6.10.3",
+    "jest": "^21.2.1",
     "node-sass": "^4.5.2",
     "sass-loader": "^6.0.3",
     "style-loader": "^0.16.1",
@@ -25,14 +31,16 @@
   },
   "dependencies": {
     "babel-loader": "^7.0.0",
-    "enzyme": "^3.2.0",
-    "eslint-plugin-jest": "^21.3.2",
-    "jest": "^21.2.1",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
     "whatwg-fetch": "^2.0.3"
   },
-  "main": "server.js"
+  "main": "server.js",
+  "jest": {
+    "setupFiles": [
+      "./src/init/setupTests.js"
+    ]
+  }
 }
