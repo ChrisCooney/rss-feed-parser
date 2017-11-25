@@ -26,7 +26,7 @@ class ArticlesContainer extends Component {
     } else {
       components = (
         <div>
-          <h1>Articles Pulled from the RSS Feed</h1>
+          <h1 className="c-header">Articles Pulled from the RSS Feed</h1>
           <ArticlesList articles={articles} />
         </div>
       )

@@ -1,16 +1,23 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Grid, Row, Col } from 'react-flexgrid'
 
 import Article from './Article'
 
 const ArticlesList = ({ articles }) => (
-  <div>
-    {
-      articles.map(
-        article => <Article key={article.url} article={article} />,
-      )
-    }
-  </div>
+  <Grid>
+    <Row>
+      {
+        articles.map(
+          article => (
+            <Col key={article.url} xs={12} md={6}>
+              <Article article={article} />
+            </Col>
+          ),
+        )
+      }
+    </Row>
+  </Grid>
 )
 
 ArticlesList.propTypes = {

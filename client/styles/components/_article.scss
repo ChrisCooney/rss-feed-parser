@@ -1,0 +1,17 @@
+.c-article {
+  background-color: rgba(100,100,100,0.5);
+  margin: 10px;
+  padding: 10px;
+  display: inline-block;
+  min-height: 100px;
+}
+
+.c-article__title {
+  font-family: 'Anton', sans-serif;
+  color: #EEEEEE;
+}
+
+.c-article:hover {
+  background-color: rgba(200,200,200,0.5);
+  cursor: pointer;
+}
