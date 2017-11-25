@@ -1,7 +1,7 @@
-import got from 'got'
+import fetch from 'node-fetch'
 
 const get = (url) => {
-  return got(url)
+  return fetch(url)
 }
 
 export default {

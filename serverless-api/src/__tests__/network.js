@@ -1,10 +1,10 @@
 import network from '../network'
 
-jest.mock('got', () => (
+jest.mock('node-fetch', () => (
   () => {
     const promise = new Promise((resolve) => {
       resolve({
-        body: 'hello!'
+        text: () => 'hello!'
       })
     })
     return promise
@@ -13,6 +13,6 @@ jest.mock('got', () => (
 
 describe('Test the ability of the network utility to issue requests', () => {
   it('should return the content sent back to it from the network utility it uses when sending a get request', () => {
-    return network.get('something').then(response => expect(response.body).toBe('hello!'))
+    return network.get('something').then(response => expect(response.text()).toBe('hello!'))
   })
 })

@@ -1,6 +1,6 @@
 import scraper from './scraper'
 
-const images = (event, context, callback) => (
+export const images = (event, context, callback) => (
   scraper.fetchArticleSummaries()
     .then(summaries => {
       callback(null, {
@@ -9,5 +9,3 @@ const images = (event, context, callback) => (
       })
     })
 )
-
-export default images

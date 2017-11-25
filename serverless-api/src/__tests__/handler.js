@@ -1,4 +1,4 @@
-import handler from '../handler'
+import { images } from '../handler'
 
 const mockArticleSummaries = [{
   title: 'title',
@@ -23,7 +23,7 @@ describe('Test the main handler functionality.', () => {
   it('should invoke the callback with the provided response', () => {
      const mockCallback = jest.fn()
 
-     return handler(null, null, mockCallback).then(() => {
+     return images(null, null, mockCallback).then(() => {
        expect(mockCallback).toHaveBeenCalledWith(null, mockHttpResponse)
      })
   })

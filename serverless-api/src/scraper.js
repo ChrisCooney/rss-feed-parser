@@ -5,7 +5,7 @@ const LAD_BIBLE_RSS_FEED = 'http://www.ladbible.com/news.rss'
 
 const fetchArticleSummaries = () => (
   network.get(LAD_BIBLE_RSS_FEED)
-    .then(response => response.body)
+    .then(response => response.text())
     .then(rawRss => parseArticleSummaries(rawRss))
 )
 

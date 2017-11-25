@@ -4,7 +4,7 @@ import path from 'path'
 
 const mockNetworkPromise = new Promise(resolve => {
   fs.readFile(path.join(__dirname, '/resources/test-rss-sample.rss'), 'utf8', (error, data) => {
-    resolve({ body: data })
+    resolve({ text: () => data })
   })
 })
 
