@@ -24,7 +24,7 @@ const parseArticleSummaries = rawRss => {
 
 const parseArticleSummary = ($, item) => {
   return {
-    title: handleCP1252Encoding($('title', item).text()).trim(),
+    title: $('title', item).text().trim(),
     url: $('link', item).text(),
     images: parseImageUrls($, item)
   }
@@ -45,8 +45,6 @@ const getImgSrc = ($, img) => $(img).attr('src')
 
 /* it thinks that content:encoded is a pseudoclass selector and goes mental.*/
 const getRawArticleContent = ($, item) => $(':contains("content")', item).text()
-
-const handleCP1252Encoding = content => content.replace('â€‹', '')
 
 export default {
   fetchArticleSummaries,

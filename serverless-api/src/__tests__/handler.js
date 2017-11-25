@@ -8,7 +8,10 @@ const mockArticleSummaries = [{
 
 const mockHttpResponse = {
   statusCode: 200,
-  body: JSON.stringify(mockArticleSummaries)
+  body: JSON.stringify(mockArticleSummaries),
+  headers: {
+    'Content-Type': 'application/json; charset=utf-8'
+  }
 }
 
 jest.mock('../scraper', () => ({

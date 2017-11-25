@@ -5,7 +5,10 @@ export const images = (event, context, callback) => (
     .then(summaries => {
       callback(null, {
         statusCode: 200,
-        body: JSON.stringify(summaries)
+        body: JSON.stringify(summaries),
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8'
+        }
       })
     })
 )
