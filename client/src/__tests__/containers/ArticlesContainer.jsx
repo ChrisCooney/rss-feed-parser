@@ -5,7 +5,11 @@ import ArticlesContainer from '../../containers/ArticlesContainer'
 
 describe('Images renders out the correct child components', () => {
   it('should render the articles component', () => {
-    const rendered = shallow(<ArticlesContainer />)
-    expect(rendered.containsMatchingElement(<ArticlesList />)).toBe(true)
+    const $ = shallow(<ArticlesContainer />)
+    expect($.containsMatchingElement(<ArticlesList />)).toBe(true)
+
+    /*
+    Benched while building out the ArticlesList functionality.
+    */
   })
 })
