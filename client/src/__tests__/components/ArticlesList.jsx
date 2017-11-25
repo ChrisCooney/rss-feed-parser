@@ -1,6 +1,7 @@
 import React from 'react'
 import { mount } from 'enzyme'
 import ArticlesList from '../../components/ArticlesList'
+import Article from '../../components/Article'
 
 const mockArticles = [
   {
@@ -13,7 +14,7 @@ const mockArticles = [
 ]
 
 describe('Articles component correctly renders its content', () => {
-  it('should json stringify the content it gets in', () => {
+  it('should render out an article for the articles it gets in', () => {
     const $ = mount(<ArticlesList articles={mockArticles} />)
     expect($.containsMatchingElement(<Article />)).toBe(true)
     /* Benched while working on article component */
