@@ -12,7 +12,14 @@ const fetchArticleSummaries = () => (
 const parseArticleSummaries = rawRss => {
   const $ = parser.load(rawRss, { xmlMode: true })
   const items = $('item')
-  return items.map((index, item) => parseArticleSummary($, item))
+
+  const summaries = []
+
+  items.each((index, item) => {
+    summaries.push(parseArticleSummary($, item))
+  })
+
+  return summaries
 }
 
 const parseArticleSummary = ($, item) => {
