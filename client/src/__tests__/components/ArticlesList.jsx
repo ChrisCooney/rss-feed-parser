@@ -6,7 +6,7 @@ import Article from '../../components/Article'
 const mockArticles = [
   {
     title: 'Chris',
-    link: 'Chris.com',
+    url: 'Chris.com',
     images: [
       'image1.png',
     ],

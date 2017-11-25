@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import reducers from './reducers'
-import Client from './Client'
+import ArticlesContainer from './containers/ArticlesContainer'
 
 require('../styles/application.scss')
 
@@ -16,7 +16,7 @@ const store = createStore(
 
 ReactDOM.render(
   <Provider store={store}>
-    <Client />
+    <ArticlesContainer />
   </Provider>,
   document.getElementById('react-root'),
 )

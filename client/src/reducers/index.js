@@ -1,17 +1,20 @@
 import { combineReducers } from 'redux'
 
-const imageReducer = (state = {}, action) => {
+import { types } from '../actions/articles'
+
+const articlesReducer = (
+  state = {
+    loading: true,
+    list: [],
+  },
+  action,
+) => {
   switch (action.type) {
-    case 'IMAGES_LOADED': {
+    case types.loaded: {
       return {
         ...state,
-        images: action.payload,
-      }
-    }
-    case 'FILTER_LOADED': {
-      return {
-        ...state,
-        filter: action.payload,
+        list: action.payload,
+        loading: false,
       }
     }
     default: {
@@ -21,5 +24,5 @@ const imageReducer = (state = {}, action) => {
 }
 
 export default combineReducers({
-  images: imageReducer,
+  articles: articlesReducer,
 })

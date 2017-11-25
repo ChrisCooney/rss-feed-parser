@@ -4,7 +4,13 @@ import PropTypes from 'prop-types'
 import Article from './Article'
 
 const ArticlesList = ({ articles }) => (
-  <div>{ articles.map(article => <Article key={article.link} article={article} />) }</div>
+  <div>
+    {
+      articles.map(
+        article => <Article key={article.url} article={article} />,
+      )
+    }
+  </div>
 )
 
 ArticlesList.propTypes = {
