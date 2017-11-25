@@ -7,7 +7,8 @@ export const images = (event, context, callback) => (
         statusCode: 200,
         body: JSON.stringify(summaries),
         headers: {
-          'Content-Type': 'application/json; charset=utf-8'
+          'Content-Type': 'application/json; charset=utf-8',
+          'Access-Control-Allow-Origin': '*',
         }
       })
     })
@@ -15,7 +16,8 @@ export const images = (event, context, callback) => (
       callback(null, {
         statusCode: 500,
         headers: {
-          'Content-Type': 'application/json; charset=utf-8'
+          'Content-Type': 'application/json; charset=utf-8',
+          'Access-Control-Allow-Origin': '*',
         }
       })
     })

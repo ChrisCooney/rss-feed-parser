@@ -8,18 +8,20 @@ const mockArticleSummaries = [{
   images: []
 }]
 
-const mockHttpResponse = {
+const expectedHttpResponse = {
   statusCode: 200,
   body: JSON.stringify(mockArticleSummaries),
   headers: {
-    'Content-Type': 'application/json; charset=utf-8'
+    'Content-Type': 'application/json; charset=utf-8',
+    'Access-Control-Allow-Origin': '*',
   }
 }
 
 const expectedErrorResponse = {
   statusCode: 500,
   headers: {
-    'Content-Type': 'application/json; charset=utf-8'
+    'Content-Type': 'application/json; charset=utf-8',
+    'Access-Control-Allow-Origin': '*',
   }
 }
 
@@ -39,7 +41,7 @@ describe('Test the main handler functionality.', () => {
      const mockCallback = jest.fn()
 
      return images(null, null, mockCallback).then(() => {
-       expect(mockCallback).toHaveBeenCalledWith(null, mockHttpResponse)
+       expect(mockCallback).toHaveBeenCalledWith(null, expectedHttpResponse)
      })
   })
 
