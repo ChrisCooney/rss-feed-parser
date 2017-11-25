@@ -11,4 +11,12 @@ export const images = (event, context, callback) => (
         }
       })
     })
+    .catch(() => {
+      callback(null, {
+        statusCode: 500,
+        headers: {
+          'Content-Type': 'application/json; charset=utf-8'
+        }
+      })
+    })
 )

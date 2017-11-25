@@ -1,7 +1,7 @@
 service:
   name: my-magic-api
 
-# Add the serverless-webpack plugin
+# Add serverless plugins
 plugins:
   - serverless-webpack
 
