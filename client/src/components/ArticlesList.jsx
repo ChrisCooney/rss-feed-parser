@@ -1,16 +1,14 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import Article from './Article'
+
 const ArticlesList = ({ articles }) => (
-  <div>{ JSON.stringify(articles) }</div>
+  <div>{ articles.map(article => <Article key={article.link} article={article} />) }</div>
 )
 
 ArticlesList.propTypes = {
-  articles: PropTypes.arrayOf(PropTypes.shape({
-    title: PropTypes.string,
-    link: PropTypes.string,
-    images: PropTypes.arrayOf(PropTypes.string),
-  })),
+  articles: PropTypes.arrayOf(Article.propTypes.article),
 }
 
 ArticlesList.defaultProps = {

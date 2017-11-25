@@ -15,6 +15,9 @@ describe('Article', () => {
   it('should render out the details of an article', () => {
     const $ = shallow(<Article article={mockArticle} />)
 
-    expect($.contains('Chris'))
+    expect($.contains(mockArticle.title)).toBe(true)
+    // expect($.containsMatchingElement(
+    //   <img src={mockArticle.images[0]} alt={mockArticle.title} />,
+    // )).toBe(true)
   })
 })

@@ -16,7 +16,6 @@ const mockArticles = [
 describe('Articles component correctly renders its content', () => {
   it('should render out an article for the articles it gets in', () => {
     const $ = mount(<ArticlesList articles={mockArticles} />)
-    expect($.containsMatchingElement(<Article />)).toBe(true)
-    /* Benched while working on article component */
+    expect($.containsMatchingElement(<Article article={mockArticles[0]} />)).toBe(true)
   })
 })
