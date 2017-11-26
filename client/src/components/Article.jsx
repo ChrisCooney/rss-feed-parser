@@ -1,10 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
+import Images from './Images'
+
 const Article = ({ article }) => (
   <a href={article.url}>
-    <div className="c-article col-6" key={article.url}>
+    <div className="c-article" key={article.url}>
       <h2 className="c-article__title">{article.title}</h2>
+      <Images images={article.images} />
     </div>
   </a>
 )

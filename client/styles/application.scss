@@ -1,7 +1,7 @@
 // This is the top-level scss file. Import all other files in here.
+@import 'variables';
 @import 'components';
 @import 'scaffolding';
-@import '~react-flexgrid/lib/flexgrid.css';
 
 // Google font import
 @import url('https://fonts.googleapis.com/css?family=Signika');
