@@ -1,4 +1,4 @@
-import { types, articlesLoaded, filterUpdated } from '../../actions/articles'
+import { types, articlesLoaded, filterUpdated, error } from '../../actions/articles'
 
 const mockJson = {
   hello: 'world',
@@ -15,5 +15,10 @@ describe('Test actions correct wrap up content', () => {
     const action = filterUpdated('hello')
     expect(action.type).toBe(types.filterUpdated)
     expect(action.payload).toBe('hello')
+  })
+
+  it('should create a redux action object for the error', () => {
+    const action = error()
+    expect(action.type).toBe(types.error)
   })
 })

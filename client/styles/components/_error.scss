@@ -1,0 +1,9 @@
+.c-error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: whitesmoke;
+  background-color: $alert-background-color;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

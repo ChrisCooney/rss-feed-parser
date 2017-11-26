@@ -23,6 +23,13 @@ const articlesReducer = (
         filter: action.payload,
       }
     }
+    case types.error: {
+      return {
+        ...state,
+        loading: false,
+        error: true,
+      }
+    }
     default: {
       return state
     }

@@ -4,9 +4,10 @@ import PropTypes from 'prop-types'
 const SearchField = ({ filter, onFilterUpdate }) => (
   <input
     onChange={event => onFilterUpdate(event.target.value)}
-    type="text" value={filter}
+    type="text"
+    value={filter}
     placeholder="Filter articles on title"
-    className="c-article-filter"
+    className="c-search"
   />
 )
 
@@ -16,7 +17,7 @@ SearchField.propTypes = {
 }
 
 SearchField.defaultProps = {
-  filter: undefined,
+  filter: '',
 }
 
 export default SearchField

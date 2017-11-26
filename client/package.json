@@ -38,11 +38,12 @@
     "babel-loader": "^7.0.0",
     "classnames": "^2.2.5",
     "prop-types": "^15.6.0",
-    "react": "^15.5.4",
+    "react": "^15.6.2",
     "react-dom": "^15.5.4",
     "react-masonry-component": "^6.0.1",
     "react-redux": "^5.0.6",
     "redux": "^3.7.2",
+    "reselect": "^3.0.1",
     "whatwg-fetch": "^2.0.3"
   },
   "main": "server.js",

@@ -6,7 +6,7 @@ jspm_packages
 serverless-api/.serverless
 
 # Test output
-serverless-api/coverage
+*/coverage
 
 # Webpack directories
 .webpack
