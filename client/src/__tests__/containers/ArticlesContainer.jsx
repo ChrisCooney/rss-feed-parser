@@ -3,6 +3,7 @@ import { shallow } from 'enzyme'
 import { fetchArticles } from '../../utils/api'
 
 import ArticlesList from '../../components/ArticlesList'
+import SearchField from '../../components/SearchField'
 import { Component as ArticlesContainer } from '../../containers/ArticlesContainer'
 
 const mockJsonResponse = [
@@ -36,6 +37,7 @@ describe('Images renders out the correct child components', () => {
     )
 
     expect($.containsMatchingElement(<ArticlesList />)).toBe(true)
+    expect($.containsMatchingElement(<SearchField />)).toBe(true)
     expect(fetchArticles).toHaveBeenCalled()
   })
 })

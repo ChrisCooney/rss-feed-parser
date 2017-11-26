@@ -1,5 +1,6 @@
 const types = {
   loaded: 'ARTICLES_LOADED',
+  filterUpdated: 'FILTER_UPDATED',
 }
 
 const articlesLoaded = json => ({
@@ -7,7 +8,13 @@ const articlesLoaded = json => ({
   payload: json,
 })
 
+const filterUpdated = filter => ({
+  type: types.filterUpdated,
+  payload: filter,
+})
+
 export {
   types,
   articlesLoaded,
+  filterUpdated,
 }

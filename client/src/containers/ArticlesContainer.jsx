@@ -3,10 +3,11 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 import { fetchArticles } from '../utils/api'
-import { articlesLoaded } from '../actions/articles'
-import { selectArticles, selectLoading } from '../selectors/articles'
+import { articlesLoaded, filterUpdated } from '../actions/articles'
+import { selectArticles, selectLoading, selectFilter } from '../selectors/articles'
 
 import ArticlesList from '../components/ArticlesList'
+import SearchField from '../components/SearchField'
 
 class ArticlesContainer extends Component {
   componentWillMount() {
@@ -17,7 +18,7 @@ class ArticlesContainer extends Component {
   }
 
   render() {
-    const { articles, loading } = this.props
+    const { articles, loading, filter, dispatchFilterEvent } = this.props
 
     let components
 
@@ -27,6 +28,7 @@ class ArticlesContainer extends Component {
       components = (
         <div>
           <h1 className="c-header">Articles Pulled from the RSS Feed</h1>
+          <SearchField filter={filter} onFilterUpdate={dispatchFilterEvent} />
           <ArticlesList articles={articles} />
         </div>
       )
@@ -37,13 +39,16 @@ class ArticlesContainer extends Component {
 }
 
 ArticlesContainer.propTypes = {
+  dispatchFilterEvent: PropTypes.func.isRequired,
   dispatchLoadedEvent: PropTypes.func.isRequired,
-  articles: ArticlesList.propTypes.articles,
   loading: PropTypes.bool.isRequired,
+  articles: ArticlesList.propTypes.articles,
+  filter: PropTypes.string,
 }
 
 ArticlesContainer.defaultProps = {
   articles: [],
+  filter: undefined,
 }
 
 export {
@@ -54,8 +59,10 @@ export default connect(
   state => ({
     articles: selectArticles(state),
     loading: selectLoading(state),
+    filter: selectFilter(state),
   }),
   dispatch => ({
     dispatchLoadedEvent: articles => dispatch(articlesLoaded(articles)),
+    dispatchFilterEvent: filter => dispatch(filterUpdated(filter)),
   }),
 )(ArticlesContainer)

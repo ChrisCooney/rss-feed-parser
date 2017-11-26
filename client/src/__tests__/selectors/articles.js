@@ -1,9 +1,10 @@
-import { selectArticles, selectLoading } from '../../selectors/articles'
+import { selectArticles, selectLoading, selectFilter } from '../../selectors/articles'
 
 const mockState = {
   articles: {
     list: [{ hello: 'world' }],
     loading: false,
+    filter: 'hello',
   },
 }
 
@@ -18,5 +19,12 @@ describe('selectLoading', () => {
   it('should return the loading state from the mock state passed in', () => {
     const loading = selectLoading(mockState)
     expect(loading).toBe(false)
+  })
+})
+
+describe('selectFilter', () => {
+  it('should return the filter state from the mock state passed in', () => {
+    const filter = selectFilter(mockState)
+    expect(filter).toBe('hello')
   })
 })
